@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 kind: ReplicationController
 apiVersion: v1
 metadata:
@@ -22,3 +23,29 @@ spec:
         ports:
         - name: redis-server
           containerPort: 6379
+=======
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: redis-master
+  labels:
+    app: redis
+    role: master
+spec:
+  replicas: 1
+  selector:
+    app: redis
+    role: master
+  template:
+    metadata:
+      labels:
+        app: redis
+        role: master
+    spec:
+      containers:
+      - name: redis-master
+        image: registry.k8s.io/redis:e2e
+        ports:
+        - name: redis-server
+          containerPort: 6379
+>>>>>>> 05452ed3f82b849aaf86d06b4d2b088c4ef1cb88

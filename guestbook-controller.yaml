@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 kind: ReplicationController
 apiVersion: v1
 metadata:
@@ -19,3 +20,26 @@ spec:
         ports:
         - name: http-server
           containerPort: 3000
+=======
+kind: ReplicationController
+apiVersion: v1
+metadata:
+  name: guestbook
+  labels:
+    app: guestbook
+spec:
+  replicas: 3
+  selector:
+    app: guestbook
+  template:
+    metadata:
+      labels:
+        app: guestbook
+    spec:
+      containers:
+      - name: guestbook
+        image: registry.k8s.io/guestbook:v3
+        ports:
+        - name: http-server
+          containerPort: 3000
+>>>>>>> 05452ed3f82b849aaf86d06b4d2b088c4ef1cb88
